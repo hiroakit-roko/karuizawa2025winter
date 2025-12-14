@@ -6,7 +6,7 @@
     <title>Karuizawa 2025 Winter Trip</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&family=Shippori+Mincho:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -479,6 +479,318 @@
                 transform: translateY(100vh) rotate(360deg);
             }
         }
+
+        /* Info Button */
+        .info-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            margin-left: 10px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+            border: 1.5px solid var(--color-gold);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            vertical-align: middle;
+        }
+
+        .info-btn:hover {
+            background: var(--color-gold);
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+
+        .info-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--color-gold);
+            transition: fill 0.3s ease;
+        }
+
+        .info-btn:hover svg {
+            fill: var(--color-dark);
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Modal Content */
+        .modal {
+            background: linear-gradient(145deg, var(--color-navy), var(--color-dark));
+            border: 2px solid var(--color-gold);
+            border-radius: 24px;
+            max-width: 650px;
+            width: 100%;
+            max-height: 85vh;
+            overflow: hidden;
+            transform: scale(0.8) translateY(30px);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow:
+                0 25px 80px rgba(0, 0, 0, 0.5),
+                0 0 60px rgba(212, 175, 55, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1) translateY(0);
+        }
+
+        /* Modal Image */
+        .modal-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .modal-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(transparent, var(--color-navy));
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .modal:hover .modal-image img {
+            transform: scale(1.05);
+        }
+
+        /* Modal Body */
+        .modal-body {
+            padding: 25px 30px 30px;
+            overflow-y: auto;
+            max-height: calc(85vh - 200px);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--color-gold);
+            letter-spacing: 0.05em;
+            line-height: 1.3;
+        }
+
+        .modal-close {
+            width: 36px;
+            height: 36px;
+            border: 2px solid rgba(212, 175, 55, 0.5);
+            border-radius: 50%;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 15px;
+        }
+
+        .modal-close:hover {
+            background: var(--color-gold);
+            border-color: var(--color-gold);
+        }
+
+        .modal-close svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--color-gold);
+            transition: stroke 0.3s ease;
+        }
+
+        .modal-close:hover svg {
+            stroke: var(--color-dark);
+        }
+
+        /* Modal Description - Elegant Text */
+        .modal-description {
+            font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+            font-size: 0.92rem;
+            line-height: 2.1;
+            color: rgba(240, 245, 249, 0.9);
+            font-weight: 400;
+            margin-bottom: 30px;
+            text-align: justify;
+            letter-spacing: 0.03em;
+        }
+
+        .modal-description p {
+            margin-bottom: 1.2em;
+            text-indent: 1em;
+        }
+
+        .modal-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Modal Divider */
+        .modal-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+            margin: 25px 0;
+        }
+
+        /* Modal Contact Info - Compact Footer */
+        .modal-contact {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 20px;
+            font-size: 0.85rem;
+            color: rgba(240, 245, 249, 0.7);
+        }
+
+        .modal-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .modal-contact-item.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .modal-contact-icon {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .modal-contact-icon svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--color-gold);
+            opacity: 0.8;
+        }
+
+        .modal-contact-text {
+            line-height: 1.4;
+        }
+
+        .modal-contact-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(212, 175, 55, 0.7);
+            margin-bottom: 2px;
+        }
+
+        /* Modal Link */
+        .modal-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 25px;
+            padding: 12px 24px;
+            background: transparent;
+            border: 1.5px solid var(--color-gold);
+            border-radius: 30px;
+            color: var(--color-gold);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            transition: all 0.3s ease;
+        }
+
+        .modal-link:hover {
+            background: var(--color-gold);
+            color: var(--color-dark);
+        }
+
+        .modal-link svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        @media (max-width: 768px) {
+            .modal-contact {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-description {
+                font-size: 0.95rem;
+                text-align: left;
+            }
+        }
+
+        /* Title with info button */
+        .event-title-wrapper {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .modal {
+                max-width: 100%;
+                max-height: 90vh;
+                border-radius: 20px;
+            }
+
+            .modal-image {
+                height: 160px;
+            }
+
+            .modal-body {
+                padding: 20px;
+                max-height: calc(90vh - 160px);
+            }
+
+            .modal-title {
+                font-size: 1.3rem;
+            }
+
+            .info-btn {
+                width: 24px;
+                height: 24px;
+            }
+
+            .info-btn svg {
+                width: 12px;
+                height: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -521,24 +833,34 @@
                         <div class="event-time">11:00</div>
                         <div class="event-content">
                             <div class="event-icon">🍜</div>
-                            <div class="event-title">田舎っぺうどん</div>
+                            <div class="event-title-wrapper">
+                                <span class="event-title">田舎っぺうどん</span>
+                                <button class="info-btn" data-venue="inakappeudon" aria-label="詳細情報">
+                                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                                </button>
+                            </div>
                             <div class="event-description">熊谷名物のうどんでランチ</div>
                         </div>
                     </div>
                     <div class="event">
-                        <div class="event-time">午後</div>
+                        <div class="event-time">15:30</div>
                         <div class="event-content">
                             <div class="event-icon">⛸️</div>
-                            <div class="event-title">アイススケート</div>
+                            <div class="event-title-wrapper">
+                                <span class="event-title">ケラ池スケートリンク</span>
+                                <button class="info-btn" data-venue="keraike" aria-label="詳細情報">
+                                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                                </button>
+                            </div>
                             <div class="event-description">冬の軽井沢を満喫！</div>
                         </div>
                     </div>
                     <div class="event">
                         <div class="event-time">夕食</div>
                         <div class="event-content">
-                            <div class="event-icon">🍽️</div>
-                            <div class="event-title">ディナー</div>
-                            <div class="event-description">未定 - 現地で決めよう</div>
+                            <div class="event-icon">🦪</div>
+                            <div class="event-title">家で牡蠣鍋</div>
+                            <div class="event-description">みんなで温まろう！</div>
                         </div>
                     </div>
                 </div>
@@ -555,7 +877,12 @@
                         <div class="event-time">10:30</div>
                         <div class="event-content">
                             <div class="event-icon">💪</div>
-                            <div class="event-title">ジムで運動</div>
+                            <div class="event-title-wrapper">
+                                <span class="event-title">スカップ軽井沢で運動</span>
+                                <button class="info-btn" data-venue="scap" aria-label="詳細情報">
+                                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                                </button>
+                            </div>
                             <div class="event-description">旅先でも健康的に！</div>
                         </div>
                     </div>
@@ -563,7 +890,12 @@
                         <div class="event-time">12:00</div>
                         <div class="event-content">
                             <div class="event-icon">🍚</div>
-                            <div class="event-title">御厨でランチ</div>
+                            <div class="event-title-wrapper">
+                                <span class="event-title">かまど炊きご飯 御厨で昼飯</span>
+                                <button class="info-btn" data-venue="mikuriya" aria-label="詳細情報">
+                                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                                </button>
+                            </div>
                             <div class="event-description">地元の美味しいお昼ごはん</div>
                         </div>
                     </div>
@@ -571,7 +903,12 @@
                         <div class="event-time">19:30</div>
                         <div class="event-content">
                             <div class="event-icon">🥂</div>
-                            <div class="event-title">ア・ターブルでフレンチ</div>
+                            <div class="event-title-wrapper">
+                                <span class="event-title">ア・ターブルでフレンチ</span>
+                                <button class="info-btn" data-venue="atable" aria-label="詳細情報">
+                                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                                </button>
+                            </div>
                             <div class="event-description">特別なディナーを堪能</div>
                         </div>
                     </div>
@@ -594,11 +931,16 @@
                         </div>
                     </div>
                     <div class="event">
-                        <div class="event-time">昼食</div>
+                        <div class="event-time">12:00</div>
                         <div class="event-content">
-                            <div class="event-icon">🍴</div>
-                            <div class="event-title">ランチ</div>
-                            <div class="event-description">どこかで最後のランチ</div>
+                            <div class="event-icon">🍝</div>
+                            <div class="event-title-wrapper">
+                                <span class="event-title">KAGARIBIでイタリアン</span>
+                                <button class="info-btn" data-venue="kagaribi" aria-label="詳細情報">
+                                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                                </button>
+                            </div>
+                            <div class="event-description">最後のランチを楽しもう</div>
                         </div>
                     </div>
                     <div class="event">
@@ -639,6 +981,33 @@
         <p class="message">素敵な冬の思い出を</p>
     </footer>
 
+    <!-- Modal -->
+    <div class="modal-overlay" id="venueModal">
+        <div class="modal">
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="">
+            </div>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="modalTitle"></h3>
+                    <button class="modal-close" aria-label="閉じる">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-description" id="modalDescription"></div>
+                <div class="modal-divider"></div>
+                <div class="modal-contact" id="modalContact"></div>
+                <a href="#" class="modal-link" id="modalLink" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                    公式サイトを見る
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Intersection Observer for scroll animations
         const observer = new IntersectionObserver((entries) => {
@@ -674,6 +1043,206 @@
         }
 
         setInterval(createSnowflake, 300);
+
+        // Venue Data with detailed descriptions
+        const venueData = {
+            inakappeudon: {
+                name: '元祖田舎っぺうどん',
+                subtitle: '本店',
+                image: 'venues/images/inakappeudon.webp',
+                description: `<p>埼玉県熊谷市で長年愛され続ける名店。「打ち立て・茹でたて」にこだわり、注文を受けてから一杯ずつ丁寧に仕上げる武蔵野うどんの真髄を味わえます。</p>
+                <p>看板メニューの「肉汁うどん」は、コシの強い太麺を豚肉の旨みが溶け込んだ熱々のつけ汁でいただく逸品。つるつるとした喉越しと、噛むほどに広がる小麦の風味が特徴です。珍しい「塩肉汁うどん」もぜひお試しを。</p>`,
+                address: '埼玉県熊谷市代1061-1',
+                hours: '10:00〜15:00',
+                closed: '日曜定休',
+                phone: '048-521-8784',
+                url: 'https://inakappeudon-honten.com/'
+            },
+            keraike: {
+                name: 'ケラ池スケートリンク',
+                subtitle: '軽井沢星野エリア',
+                image: 'venues/images/keraike.jpg',
+                description: `<p>軽井沢の豊かな森に囲まれた、自然の池が凍ってできるスケートリンク。「軽井沢野鳥の森」に隣接し、滑りながら冬の森の美しさを堪能できる特別な場所です。</p>
+                <p>天然氷と人工氷のエリアがあり、初心者から上級者まで楽しめます。夕暮れ時には幻想的なイルミネーションが点灯し、まるで絵本の中に迷い込んだような体験が待っています。貸靴込みなので手ぶらでOK。</p>`,
+                address: '長野県軽井沢町星野',
+                hours: '10:00〜16:00（時期により変動）',
+                price: '大人 1,900円〜 / 小学生以下 1,300円〜',
+                phone: '0267-45-7777',
+                url: 'https://www.hoshino-area.jp/kera-ike-icerink/'
+            },
+            scap: {
+                name: 'スカップ軽井沢',
+                subtitle: '軽井沢風越公園',
+                image: 'venues/images/scap.jpg',
+                description: `<p>軽井沢風越公園内にある通年型の総合スポーツ施設。2014年にリニューアルオープンし、充実した設備で地元の方から観光客まで幅広く親しまれています。</p>
+                <p>25mプール、子供用プール、ジャグジー、採暖室を完備。2階のトレーニングルームには各種マシンが揃い、旅先でも日頃の運動習慣を維持できます。町外の方も気軽に利用できるのが嬉しいポイント。</p>`,
+                address: '長野県北佐久郡軽井沢町発地1157-6',
+                hours: '9:00〜21:00',
+                closed: '月曜定休（祝日の場合は翌日）',
+                phone: '0267-48-2145',
+                url: 'https://www.kazakoshi-park.jp/facility/scap-karuizawa/'
+            },
+            mikuriya: {
+                name: 'かまど炊きご飯 御厨',
+                subtitle: 'みくりや',
+                image: 'venues/images/mikuriya.jpg',
+                description: `<p>軽井沢の自然に囲まれた静かな場所で、昔ながらの「愛農かまど」で炊き上げたふっくらご飯をいただけるお店。煙突から立ち上る煙が、丁寧な仕事の証です。</p>
+                <p>おにぎり御膳、とろろ汁御膳、信州福味鶏御膳など、素材の味を活かしたシンプルで滋味深いメニューが揃います。心休まる和の空間で、ゆったりとした時間を過ごせます。人気店のため予約がおすすめ。</p>`,
+                address: '長野県北佐久郡軽井沢町発地2127',
+                hours: '7:15〜15:00（L.O. 14:00）',
+                closed: '水曜定休（11月〜4月）',
+                phone: '0267-41-6741',
+                url: 'https://inakappe-club.jp/mikuriya'
+            },
+            atable: {
+                name: 'ア・ターブル',
+                subtitle: '旧軽井沢KIKYO キュリオ・コレクションbyヒルトン',
+                image: 'venues/images/atable.jpg',
+                description: `<p>旧軽井沢の名門ホテル内にあるカジュアルダイニング。「地元に帰郷したとき、その土地の食材で迎えてくれるように」というコンセプトのもと、信州の食材にとことんこだわった料理を提供しています。</p>
+                <p>アラカルトで気軽に楽しむもよし、コース仕立てでしっかりと堪能するもよし。その日の気分に合わせて、自分らしいスタイルで食事を楽しめます。洗練された空間で過ごす特別なディナータイムを。</p>`,
+                address: '長野県北佐久郡軽井沢町軽井沢491-5',
+                hours: '夕食 17:30〜20:30 L.O.',
+                phone: '0267-41-6990',
+                url: 'https://www.kyukaruizawa-kikyo.com/restaurants/a_table'
+            },
+            kagaribi: {
+                name: 'KAGARIBI',
+                subtitle: 'ホテルインディゴ軽井沢',
+                image: 'venues/images/kagaribi.jpg',
+                description: `<p>ホテルインディゴ軽井沢内のオールデイダイニング。イタリアの郷土料理をベースに、軽井沢で採れた地野菜や信州産ポークなど、四季折々の地元食材を薪の炎で仕上げる「薪火イタリアン」が自慢です。</p>
+                <p>店内の薪窯で焼き上げる料理は、香ばしさと素材本来の旨みが際立ちます。テラス席ではワンちゃん同伴もOK。家族みんなで軽井沢の美食を楽しめる、心温まるレストランです。</p>`,
+                address: '長野県北佐久郡軽井沢町長倉屋敷添18-39',
+                hours: 'ランチ 11:30〜14:30 / ディナー 17:00〜22:00',
+                phone: '0267-42-1100',
+                url: 'https://karuizawa.hotelindigo.com/en/dining/all-day-dining-kagaribi/'
+            }
+        };
+
+        // SVG Icons for contact info
+        const icons = {
+            address: '<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>',
+            hours: '<svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>',
+            closed: '<svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/></svg>',
+            price: '<svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>',
+            phone: '<svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>'
+        };
+
+        // Modal Elements
+        const modal = document.getElementById('venueModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalContact = document.getElementById('modalContact');
+        const modalLink = document.getElementById('modalLink');
+        const modalClose = document.querySelector('.modal-close');
+
+        // Open Modal
+        function openModal(venueId) {
+            const venue = venueData[venueId];
+            if (!venue) return;
+
+            modalImage.src = venue.image;
+            modalImage.alt = venue.name;
+            modalTitle.innerHTML = venue.name + (venue.subtitle ? `<br><small style="font-size: 0.65em; color: var(--color-ice); font-weight: 300; font-family: 'Noto Sans JP', sans-serif;">${venue.subtitle}</small>` : '');
+            modalLink.href = venue.url;
+
+            // Set description
+            modalDescription.innerHTML = venue.description;
+
+            // Build contact info
+            let contactHTML = '';
+
+            if (venue.address) {
+                contactHTML += `
+                    <div class="modal-contact-item full-width">
+                        <div class="modal-contact-icon">${icons.address}</div>
+                        <div class="modal-contact-text">
+                            <div class="modal-contact-label">住所</div>
+                            ${venue.address}
+                        </div>
+                    </div>`;
+            }
+
+            if (venue.hours) {
+                contactHTML += `
+                    <div class="modal-contact-item">
+                        <div class="modal-contact-icon">${icons.hours}</div>
+                        <div class="modal-contact-text">
+                            <div class="modal-contact-label">営業時間</div>
+                            ${venue.hours}
+                        </div>
+                    </div>`;
+            }
+
+            if (venue.closed) {
+                contactHTML += `
+                    <div class="modal-contact-item">
+                        <div class="modal-contact-icon">${icons.closed}</div>
+                        <div class="modal-contact-text">
+                            <div class="modal-contact-label">定休日</div>
+                            ${venue.closed}
+                        </div>
+                    </div>`;
+            }
+
+            if (venue.price) {
+                contactHTML += `
+                    <div class="modal-contact-item">
+                        <div class="modal-contact-icon">${icons.price}</div>
+                        <div class="modal-contact-text">
+                            <div class="modal-contact-label">料金</div>
+                            ${venue.price}
+                        </div>
+                    </div>`;
+            }
+
+            if (venue.phone) {
+                contactHTML += `
+                    <div class="modal-contact-item">
+                        <div class="modal-contact-icon">${icons.phone}</div>
+                        <div class="modal-contact-text">
+                            <div class="modal-contact-label">電話</div>
+                            ${venue.phone}
+                        </div>
+                    </div>`;
+            }
+
+            modalContact.innerHTML = contactHTML;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Modal
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Event Listeners for Info Buttons
+        document.querySelectorAll('.info-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const venueId = btn.dataset.venue;
+                openModal(venueId);
+            });
+        });
+
+        // Close button
+        modalClose.addEventListener('click', closeModal);
+
+        // Click outside to close
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
     </script>
 </body>
 </html>
