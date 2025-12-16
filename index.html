@@ -843,6 +843,19 @@
                         </div>
                     </div>
                     <div class="event">
+                        <div class="event-time">14:00</div>
+                        <div class="event-content">
+                            <div class="event-icon">🧀</div>
+                            <div class="event-title-wrapper">
+                                <span class="event-title">アトリエ・ド・フロマージュ</span>
+                                <button class="info-btn" data-venue="fromage" aria-label="詳細情報">
+                                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                                </button>
+                            </div>
+                            <div class="event-description">自家製チーズをお土産に</div>
+                        </div>
+                    </div>
+                    <div class="event">
                         <div class="event-time">15:30</div>
                         <div class="event-content">
                             <div class="event-icon">⛸️</div>
@@ -1046,6 +1059,18 @@
 
         // Venue Data with detailed descriptions
         const venueData = {
+            fromage: {
+                name: 'アトリエ・ド・フロマージュ',
+                subtitle: '軽井沢発地市庭店',
+                image: 'venues/images/fromage.jpg',
+                description: `<p>1982年創業、長野県東御市に本店を構える日本のチーズ工房の草分け的存在。自社牧場の新鮮なミルクを使い、熟練の職人が手作りで仕上げる本格チーズは、国内外のコンテストで数々の賞を受賞しています。</p>
+                <p>軽井沢発地市庭店では、できたてチーズの販売はもちろん、自家製チーズをふんだんに使ったピザやサラダ、濃厚なチーズソフトクリームが人気。地元野菜の直売所「発地市庭」内にあり、軽井沢の食の魅力を存分に味わえます。</p>`,
+                address: '長野県北佐久郡軽井沢町大字発地2564-1',
+                hours: '10:00〜16:00（木曜は15:00まで・テイクアウトのみ）',
+                closed: '水曜定休（季節により変動）',
+                phone: '0267-41-0084',
+                url: 'https://www.a-fromage.co.jp/page/restaurant_karuizawa_hotchichiba'
+            },
             inakappeudon: {
                 name: '元祖田舎っぺうどん',
                 subtitle: '本店',
