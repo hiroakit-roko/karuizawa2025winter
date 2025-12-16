@@ -386,6 +386,172 @@
             margin-top: 20px;
         }
 
+        /* Recommended Spots Section */
+        .spots-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .spots-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            text-align: center;
+            color: var(--color-gold);
+            margin-bottom: 20px;
+            letter-spacing: 0.1em;
+        }
+
+        .spots-section .section-subtitle {
+            text-align: center;
+            color: var(--color-ice);
+            font-size: 1rem;
+            font-weight: 300;
+            margin-bottom: 50px;
+            opacity: 0.8;
+        }
+
+        .spots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .spot-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: linear-gradient(145deg, rgba(22, 33, 62, 0.8), rgba(26, 26, 46, 0.9));
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .spot-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .spot-card-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .spot-card-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(transparent, rgba(26, 26, 46, 0.95));
+        }
+
+        .spot-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .spot-card:hover .spot-card-image img {
+            transform: scale(1.1);
+        }
+
+        .spot-card-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--color-gold);
+            color: var(--color-dark);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            z-index: 2;
+        }
+
+        .spot-card-content {
+            padding: 20px 25px 25px;
+        }
+
+        .spot-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--color-gold);
+            margin-bottom: 8px;
+        }
+
+        .spot-card-subtitle {
+            font-size: 0.85rem;
+            color: var(--color-ice);
+            opacity: 0.7;
+            margin-bottom: 12px;
+        }
+
+        .spot-card-description {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: rgba(240, 245, 249, 0.85);
+            margin-bottom: 15px;
+        }
+
+        .spot-card-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.8rem;
+            color: rgba(240, 245, 249, 0.6);
+        }
+
+        .spot-card-info span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .spot-card-info svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--color-gold);
+            opacity: 0.7;
+        }
+
+        .spot-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 15px;
+            color: var(--color-gold);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .spot-card-link:hover {
+            gap: 10px;
+        }
+
+        .spot-card-link svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        @media (max-width: 768px) {
+            .spots-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .spot-card-image {
+                height: 180px;
+            }
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -993,6 +1159,149 @@
         </div>
         <div class="link-container">
             <a href="https://docs.google.com/spreadsheets/d/1zEd4IUT-3ohiwdFLPmi-WyPToMITniYQf63yNzj9jcw/edit?usp=sharing" target="_blank" class="edit-link">Edit Spreadsheet</a>
+        </div>
+    </section>
+
+    <!-- Recommended Spots Section -->
+    <section class="spots-section">
+        <h2>Winter Spots</h2>
+        <p class="section-subtitle">時間があれば立ち寄りたい、冬の軽井沢おすすめスポット</p>
+
+        <div class="spots-grid">
+            <!-- 白糸の滝 -->
+            <div class="spot-card">
+                <div class="spot-card-image">
+                    <span class="spot-card-badge">12/20-21開催</span>
+                    <img src="spots/shiraito.jpg" alt="白糸の滝 真冬のライトアップ">
+                </div>
+                <div class="spot-card-content">
+                    <h3 class="spot-card-title">白糸の滝</h3>
+                    <p class="spot-card-subtitle">真冬のライトアップ</p>
+                    <p class="spot-card-description">幅70mの滝をスクリーンに、幻想的な光と映像のショー。浅間山の伏流水は氷点下でも凍らず、冬ならではの神秘的な美しさを放つ。</p>
+                    <div class="spot-card-info">
+                        <span>
+                            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                            17:00〜19:00
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                            軽井沢駅から車25分
+                        </span>
+                    </div>
+                    <a href="https://karuizawamonogatari.com/events/軽井沢白糸の滝-真冬のライトアップ/" target="_blank" class="spot-card-link">
+                        詳しく見る
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 雲場池 -->
+            <div class="spot-card">
+                <div class="spot-card-image">
+                    <span class="spot-card-badge">絶景</span>
+                    <img src="spots/kumoba.jpg" alt="雲場池">
+                </div>
+                <div class="spot-card-content">
+                    <h3 class="spot-card-title">雲場池</h3>
+                    <p class="spot-card-subtitle">スワンレイク</p>
+                    <p class="spot-card-description">雪化粧した木々が水面に映る、静寂の冬景色。外国人から「スワンレイク」と呼ばれた軽井沢随一の絶景スポット。1周20分の散策路あり。</p>
+                    <div class="spot-card-info">
+                        <span>
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                            軽井沢駅から徒歩20分
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                            入場無料
+                        </span>
+                    </div>
+                    <a href="https://www.town.karuizawa.lg.jp/page/1194.html" target="_blank" class="spot-card-link">
+                        詳しく見る
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 旧碓氷峠見晴台 -->
+            <div class="spot-card">
+                <div class="spot-card-image">
+                    <span class="spot-card-badge">パワースポット</span>
+                    <img src="spots/usui.jpg" alt="旧碓氷峠見晴台">
+                </div>
+                <div class="spot-card-content">
+                    <h3 class="spot-card-title">旧碓氷峠見晴台</h3>
+                    <p class="spot-card-subtitle">熊野皇大神社</p>
+                    <p class="spot-card-description">長野・群馬の県境に立つパワースポット。雪化粧した浅間山や関東平野を一望。境内の中央を県境が通る珍しい神社も必見。</p>
+                    <div class="spot-card-info">
+                        <span>
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                            軽井沢駅から車14分
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                            駐車場500円
+                        </span>
+                    </div>
+                    <a href="https://usui-kumanojinjya.com/" target="_blank" class="spot-card-link">
+                        詳しく見る
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 万平ホテル カフェテラス -->
+            <div class="spot-card">
+                <div class="spot-card-image">
+                    <span class="spot-card-badge">歴史</span>
+                    <img src="spots/mampei.jpg" alt="万平ホテル カフェテラス">
+                </div>
+                <div class="spot-card-content">
+                    <h3 class="spot-card-title">万平ホテル</h3>
+                    <p class="spot-card-subtitle">カフェテラス</p>
+                    <p class="spot-card-description">1894年創業の老舗ホテル。ジョン・レノン直伝のロイヤルミルクティーと伝統のアップルパイで、優雅なティータイムを。</p>
+                    <div class="spot-card-info">
+                        <span>
+                            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                            9:30〜17:00 L.O.
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                            旧軽井沢
+                        </span>
+                    </div>
+                    <a href="https://www.mampei.co.jp/" target="_blank" class="spot-card-link">
+                        詳しく見る
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 軽井沢アイスパーク -->
+            <div class="spot-card">
+                <div class="spot-card-image">
+                    <span class="spot-card-badge">体験</span>
+                    <img src="spots/icepark.jpg" alt="軽井沢アイスパーク">
+                </div>
+                <div class="spot-card-content">
+                    <h3 class="spot-card-title">軽井沢アイスパーク</h3>
+                    <p class="spot-card-subtitle">カーリング体験</p>
+                    <p class="spot-card-description">国際大会も開催される本格リンクで、初心者向けカーリング体験。5歳から参加OK。冬季五輪の気分を味わおう。</p>
+                    <div class="spot-card-info">
+                        <span>
+                            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                            要予約
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                            風越公園内
+                        </span>
+                    </div>
+                    <a href="https://www.kazakoshi-park.jp/facility/ice-park/" target="_blank" class="spot-card-link">
+                        詳しく見る
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
