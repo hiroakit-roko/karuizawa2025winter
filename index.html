@@ -640,6 +640,10 @@
             background: linear-gradient(135deg, #22d3ee, #06b6d4);
             box-shadow: 0 3px 10px rgba(34, 211, 238, 0.5);
         }
+        .marker-villa .marker-pin {
+            background: linear-gradient(135deg, #f472b6, #ec4899);
+            box-shadow: 0 3px 10px rgba(244, 114, 182, 0.5);
+        }
 
         /* Map Legend */
         .map-legend {
@@ -672,6 +676,7 @@
         .legend-dot.hotel { background: linear-gradient(135deg, #60a5fa, #3b82f6); }
         .legend-dot.cafe { background: linear-gradient(135deg, #fb923c, #f97316); }
         .legend-dot.sports { background: linear-gradient(135deg, #22d3ee, #06b6d4); }
+        .legend-dot.villa { background: linear-gradient(135deg, #f472b6, #ec4899); }
 
         .leaflet-popup-content-wrapper {
             background: rgba(26, 26, 46, 0.95);
@@ -1598,6 +1603,7 @@
                 <div class="legend-item"><span class="legend-dot hotel"></span>ホテル</div>
                 <div class="legend-item"><span class="legend-dot cafe"></span>カフェ</div>
                 <div class="legend-item"><span class="legend-dot sports"></span>スポーツ</div>
+                <div class="legend-item"><span class="legend-dot villa"></span>別荘</div>
             </div>
         </div>
     </section>
@@ -1688,7 +1694,8 @@
             { name: '千住博美術館', lat: 36.335346, lng: 138.597253, desc: '西沢立衛設計の美しい美術館', cat: 'museum' },
             { name: 'ニューアートミュージアム', lat: 36.349596, lng: 138.634467, desc: '現代アートの発信基地', cat: 'museum' },
             { name: '絵本の森美術館', lat: 36.326781, lng: 138.597439, desc: '欧米絵本の歴史を紹介', cat: 'museum' },
-            { name: '沢村 旧軽井沢', lat: 36.35628, lng: 138.633255, desc: '人気のベーカリー&レストラン', cat: 'cafe' }
+            { name: '沢村 旧軽井沢', lat: 36.35628, lng: 138.633255, desc: '人気のベーカリー&レストラン', cat: 'cafe' },
+            { name: '別荘', lat: 36.354, lng: 138.589, desc: '宿泊拠点', cat: 'villa' }
         ];
 
         // Create category-specific icons
