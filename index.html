@@ -521,25 +521,32 @@
             opacity: 0.7;
         }
 
-        .spot-card-link {
-            display: inline-flex;
+        .spot-card-click-hint {
+            display: flex;
             align-items: center;
+            justify-content: center;
             gap: 6px;
             margin-top: 15px;
+            padding: 10px 0;
             color: var(--color-gold);
             font-size: 0.85rem;
-            text-decoration: none;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
             transition: all 0.3s ease;
         }
 
-        .spot-card-link:hover {
-            gap: 10px;
+        .spot-card:hover .spot-card-click-hint {
+            background: rgba(212, 175, 55, 0.1);
         }
 
-        .spot-card-link svg {
+        .spot-card-click-hint svg {
             width: 14px;
             height: 14px;
             fill: currentColor;
+            transition: transform 0.3s ease;
+        }
+
+        .spot-card:hover .spot-card-click-hint svg {
+            transform: translateX(4px);
         }
 
         @media (max-width: 768px) {
@@ -1169,7 +1176,7 @@
 
         <div class="spots-grid">
             <!-- 白糸の滝 -->
-            <div class="spot-card">
+            <div class="spot-card" onclick="openModal('shiraito')">
                 <div class="spot-card-image">
                     <span class="spot-card-badge">12/20-21開催</span>
                     <img src="spots/shiraito.jpg" alt="白糸の滝 真冬のライトアップ">
@@ -1188,15 +1195,15 @@
                             軽井沢駅から車25分
                         </span>
                     </div>
-                    <a href="https://karuizawamonogatari.com/events/軽井沢白糸の滝-真冬のライトアップ/" target="_blank" class="spot-card-link">
+                    <div class="spot-card-click-hint">
                         詳しく見る
                         <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-                    </a>
+                    </div>
                 </div>
             </div>
 
             <!-- 雲場池 -->
-            <div class="spot-card">
+            <div class="spot-card" onclick="openModal('kumoba')">
                 <div class="spot-card-image">
                     <span class="spot-card-badge">絶景</span>
                     <img src="spots/kumoba.jpg" alt="雲場池">
@@ -1215,15 +1222,15 @@
                             入場無料
                         </span>
                     </div>
-                    <a href="https://www.town.karuizawa.lg.jp/page/1194.html" target="_blank" class="spot-card-link">
+                    <div class="spot-card-click-hint">
                         詳しく見る
                         <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-                    </a>
+                    </div>
                 </div>
             </div>
 
             <!-- 旧碓氷峠見晴台 -->
-            <div class="spot-card">
+            <div class="spot-card" onclick="openModal('usui')">
                 <div class="spot-card-image">
                     <span class="spot-card-badge">パワースポット</span>
                     <img src="spots/usui.jpg" alt="旧碓氷峠見晴台">
@@ -1242,15 +1249,15 @@
                             駐車場500円
                         </span>
                     </div>
-                    <a href="https://usui-kumanojinjya.com/" target="_blank" class="spot-card-link">
+                    <div class="spot-card-click-hint">
                         詳しく見る
                         <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-                    </a>
+                    </div>
                 </div>
             </div>
 
             <!-- 万平ホテル カフェテラス -->
-            <div class="spot-card">
+            <div class="spot-card" onclick="openModal('mampei')">
                 <div class="spot-card-image">
                     <span class="spot-card-badge">歴史</span>
                     <img src="spots/mampei.jpg" alt="万平ホテル カフェテラス">
@@ -1269,15 +1276,15 @@
                             旧軽井沢
                         </span>
                     </div>
-                    <a href="https://www.mampei.co.jp/" target="_blank" class="spot-card-link">
+                    <div class="spot-card-click-hint">
                         詳しく見る
                         <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-                    </a>
+                    </div>
                 </div>
             </div>
 
             <!-- 軽井沢アイスパーク -->
-            <div class="spot-card">
+            <div class="spot-card" onclick="openModal('icepark')">
                 <div class="spot-card-image">
                     <span class="spot-card-badge">体験</span>
                     <img src="spots/icepark.jpg" alt="軽井沢アイスパーク">
@@ -1296,15 +1303,15 @@
                             風越公園内
                         </span>
                     </div>
-                    <a href="https://www.kazakoshi-park.jp/facility/ice-park/" target="_blank" class="spot-card-link">
+                    <div class="spot-card-click-hint">
                         詳しく見る
                         <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-                    </a>
+                    </div>
                 </div>
             </div>
 
             <!-- 軽井沢千住博美術館 -->
-            <div class="spot-card">
+            <div class="spot-card" onclick="openModal('senju')">
                 <div class="spot-card-image">
                     <span class="spot-card-badge">美術館</span>
                     <img src="spots/senju.jpg" alt="軽井沢千住博美術館">
@@ -1323,15 +1330,15 @@
                             12/25まで営業
                         </span>
                     </div>
-                    <a href="https://www.senju-museum.jp/" target="_blank" class="spot-card-link">
+                    <div class="spot-card-click-hint">
                         詳しく見る
                         <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-                    </a>
+                    </div>
                 </div>
             </div>
 
             <!-- 軽井沢ニューアートミュージアム -->
-            <div class="spot-card">
+            <div class="spot-card" onclick="openModal('newart')">
                 <div class="spot-card-image">
                     <span class="spot-card-badge">美術館</span>
                     <img src="spots/newart.jpg" alt="軽井沢ニューアートミュージアム">
@@ -1350,15 +1357,15 @@
                             駅から徒歩8分
                         </span>
                     </div>
-                    <a href="https://knam.jp/" target="_blank" class="spot-card-link">
+                    <div class="spot-card-click-hint">
                         詳しく見る
                         <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-                    </a>
+                    </div>
                 </div>
             </div>
 
             <!-- 軽井沢絵本の森美術館 -->
-            <div class="spot-card">
+            <div class="spot-card" onclick="openModal('ehon')">
                 <div class="spot-card-image">
                     <span class="spot-card-badge">美術館</span>
                     <img src="spots/ehon.jpg" alt="軽井沢絵本の森美術館">
@@ -1377,15 +1384,15 @@
                             塩沢エリア
                         </span>
                     </div>
-                    <a href="https://museen.org/ehon/" target="_blank" class="spot-card-link">
+                    <div class="spot-card-click-hint">
                         詳しく見る
                         <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-                    </a>
+                    </div>
                 </div>
             </div>
 
             <!-- ベーカリー&レストラン 沢村 -->
-            <div class="spot-card">
+            <div class="spot-card" onclick="openModal('sawamura')">
                 <div class="spot-card-image">
                     <span class="spot-card-badge">カフェ</span>
                     <img src="spots/sawamura.jpg" alt="ベーカリー&レストラン 沢村">
@@ -1404,10 +1411,10 @@
                             旧軽井沢
                         </span>
                     </div>
-                    <a href="https://b-sawamura.com/shop/28/" target="_blank" class="spot-card-link">
+                    <div class="spot-card-click-hint">
                         詳しく見る
                         <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1648,6 +1655,134 @@
                 channel: 'ABCテレビ・テレビ朝日系 全国ネット生放送',
                 mc: '今田耕司、上戸彩',
                 url: 'https://www.m-1gp.com/'
+            },
+            // Winter Spots
+            shiraito: {
+                name: '白糸の滝',
+                subtitle: '真冬のライトアップ',
+                image: 'spots/shiraito.jpg',
+                description: `<p>軽井沢を代表する名勝・白糸の滝は、浅間山に降った雨や雪が地中に染み込み、約6年の歳月をかけて湧き出す清流が生み出す神秘的な滝です。高さ約3メートル、幅約70メートルの岩肌から、まるで白い絹糸のように水が流れ落ちる様子は、日本有数の美しさを誇ります。</p>
+                <p>一般的な滝と異なり、川の水ではなく岩盤から直接湧き出す地下水が滝を形成しているため、水温が一年を通じて約11℃と安定しており、厳冬期でも凍ることがありません。この特性を活かした「真冬のライトアップ」は、今年で14回目を迎える冬の風物詩です。</p>
+                <p>2024-2025シーズンは「星/雪/水/光」をテーマに、クリスマス・ニューイヤー・バレンタインの3つのセッションで開催。赤や青のライトが滝をスクリーンのように照らし出し、プロジェクションマッピングとともに幻想的な世界を演出します。標高1,200mの澄み切った冬の星空も必見です。</p>`,
+                address: '長野県北佐久郡軽井沢町長倉（小瀬）',
+                hours: 'ライトアップ 17:00〜19:00（12/20〜23開催）',
+                price: '入場無料（白糸ハイランドウェイ通行料 普通車500円）',
+                phone: '0267-42-5538（軽井沢観光会館）',
+                url: 'https://karuizawamonogatari.com/events/軽井沢白糸の滝-真冬のライトアップ/'
+            },
+            kumoba: {
+                name: '雲場池',
+                subtitle: 'スワンレイク',
+                image: 'spots/kumoba.jpg',
+                description: `<p>雲場池は、軽井沢を代表する景勝地として100年以上の歴史を持つ池です。明治時代、軽井沢が避暑地として発展する中で、外国人宣教師たちから「Swan Lake（スワンレイク）」という愛称で親しまれるようになりました。その名の由来は、池の形が白鳥に似ていること、そしてかつて白鳥が飛来したことにあるといわれています。</p>
+                <p>池の水源は、軽井沢の湧水「御膳水」。周囲約1kmの散策路を歩けば、四季折々の表情を楽しめます。特に秋の紅葉シーズンは多くの観光客で賑わいますが、冬もまた格別の美しさがあります。</p>
+                <p>冬の雲場池は、雪化粧した木々が鏡のような水面に映り込み、静寂と凛とした空気に包まれます。軽井沢の厳寒期（1〜2月）は最低気温が氷点下10度近くまで下がりますが、晴れた日には真っ白な雪景色と青空のコントラストが息をのむほど美しい光景を見せてくれます。防寒対策と滑りにくい靴をお忘れなく。</p>`,
+                address: '長野県北佐久郡軽井沢町軽井沢（六本辻）',
+                hours: '散策自由（24時間）',
+                price: '入場無料',
+                phone: '0267-42-5538（軽井沢観光会館）',
+                url: 'https://www.town.karuizawa.lg.jp/page/1194.html'
+            },
+            usui: {
+                name: '旧碓氷峠見晴台・熊野皇大神社',
+                subtitle: '県境のパワースポット',
+                image: 'spots/usui.jpg',
+                description: `<p>標高約1,200mの旧碓氷峠は、長野県と群馬県の県境に位置し、古くから中山道の難所として知られてきました。ここに鎮座する熊野皇大神社は、日本武尊（ヤマトタケルノミコト）が東征の際に創建したと伝えられる、1,900年以上の歴史を持つ古社です。</p>
+                <p>この神社の最大の特徴は、本殿の中央を県境が通っていること。そのため、長野県側は「熊野皇大神社」、群馬県側は「熊野神社」と、一つの神社でありながら二つの名前を持ち、宮司も別々という全国でも珍しい形態となっています。和歌山県の熊野三山、山形県の熊野神社とともに「日本三大熊野」に数えられます。</p>
+                <p>境内には樹齢850年以上とされる御神木「しなの木」がそびえ、開運・縁結びのパワースポットとして信仰を集めています。木の周りを一周すると御神徳が得られるとされ、途中にはハート型の穴が見えるスポットも。神社から徒歩5分の見晴台からは、雪化粧した浅間山や妙義山、関東平野を一望できます。</p>`,
+                address: '長野県北佐久郡軽井沢町峠町2（熊野皇大神社）',
+                hours: '参拝自由（社務所 9:00〜16:00頃）',
+                price: '参拝無料（駐車場500円）',
+                phone: '0267-42-5749（熊野皇大神社）',
+                url: 'https://kumanokoutaijinja.com/'
+            },
+            mampei: {
+                name: '万平ホテル カフェテラス',
+                subtitle: 'ジョン・レノンが愛した老舗',
+                image: 'spots/mampei.jpg',
+                description: `<p>万平ホテルの歴史は、江戸時代中期の1764年（明和元年）に遡ります。佐藤万右衛門が旧軽井沢銀座に開業した旅籠「亀屋」が前身で、1894年（明治27年）に西洋式ホテルへと生まれ変わりました。きっかけは、軽井沢に避暑地としての可能性を見出したカナダ人宣教師アレクサンダー・クロフト・ショーとの出会いでした。</p>
+                <p>1936年に完成した現在の本館「アルプス館」は、日光金谷ホテルも手掛けた建築家・久米権九郎の設計によるもの。登録有形文化財に指定されたクラシカルな建物は、130年の歴史を物語っています。</p>
+                <p>このホテルを世界的に有名にしたのが、ジョン・レノンの存在です。1970年に初めて宿泊し、1976年からはオノ・ヨーコと息子ショーンとともに、毎夏アルプス館128号室に滞在しました。カフェテラスで彼が愛したのが「アップルパイ」と「ロイヤルミルクティー」。当時メニューになかったロイヤルミルクティーは、ジョン自身が作り方を伝授し、以来「ジョンズ・フェイバリット」として受け継がれています。</p>
+                <p>2024年8月にリニューアルオープンしたカフェテラスでは、テラス席も拡張され、愛犬と一緒に過ごせるスペースも。信州産りんご「紅玉」をたっぷり使った伝統のアップルパイとともに、優雅なひとときをお過ごしください。</p>`,
+                address: '長野県北佐久郡軽井沢町軽井沢925',
+                hours: '9:30〜18:00（L.O. 17:00）',
+                price: 'アップルパイ 935円 / ロイヤルミルクティー 1,210円',
+                phone: '0267-42-1234',
+                url: 'https://www.mampei.co.jp/restaurants/cafe/'
+            },
+            icepark: {
+                name: '軽井沢アイスパーク',
+                subtitle: 'カーリング体験',
+                image: 'spots/icepark.jpg',
+                description: `<p>2013年にオープンした軽井沢アイスパークは、国内最大級となる6シートを備えた通年型カーリング専用施設です。ナショナルトレーニングセンター強化拠点施設に指定されており、日本代表選手も練習に使用。国内主要大会や国際大会も開催される、まさに日本のカーリングの聖地といえる場所です。</p>
+                <p>2018年平昌五輪で「そだねー」と「もぐもぐタイム」が話題となったカーリング日本女子代表（ロコ・ソラーレ）の活躍により、一躍注目を集めたこのスポーツ。軽井沢アイスパークでは、初心者でも気軽に体験できるプログラムが用意されています。</p>
+                <p>体験コースは60分（2,380円）と90分（3,240円）の2種類。インストラクターが基本的な動き方や滑り方、ルール、得点の数え方を丁寧にレクチャーしてくれ、最後にはミニゲームまで楽しめます。5歳から参加可能で、家族連れにもおすすめ。ホール内は約5℃と寒いため、ジャケットや長ズボン（レンタルあり）、ニット帽、手袋が必要です。</p>
+                <p>併設の屋外スケートリンクは、国内屈指の高速リンクとして知られ、数々の記録が生まれています。冬季五輪の雰囲気を味わいたい方は、ぜひ体験を。要予約のため、公式サイトからお申し込みください。</p>`,
+                address: '長野県北佐久郡軽井沢町発地1154-1（軽井沢風越公園内）',
+                hours: '9:00〜22:00',
+                closed: '12/31・1/1',
+                price: '体験60分 2,380円〜 / 体験90分 3,240円〜',
+                phone: '0267-48-5555',
+                url: 'https://www.kazakoshi-park.jp/facility/ice-park/'
+            },
+            senju: {
+                name: '軽井沢千住博美術館',
+                subtitle: '滝の絵画と建築美',
+                image: 'spots/senju.jpg',
+                description: `<p>軽井沢千住博美術館は、世界的に活躍する日本画家・千住博氏の作品を専門に展示する美術館として、2011年に開館しました。千住博氏は、1995年にヴェネツィア・ビエンナーレで東洋人初の名誉賞を受賞するなど、日本画の新たな可能性を切り拓いてきたアーティストです。</p>
+                <p>美術館の最大の見どころは、代表作「ウォーターフォール（滝）」シリーズ。岩絵具を使い、滝が流れ落ちる瞬間の躍動感と静謐さを同時に表現した大作は、見る者の心を打ちます。初期作品から最新作まで約100点を所蔵し、季節ごとに展示替えが行われています。</p>
+                <p>建築も必見です。設計を手掛けたのは、妹島和世とのユニットSANAAで「建築界のノーベル賞」プリツカー賞を受賞した西沢立衛氏。千住氏からの「明るく開放的な、いままでなかったような美術館を」というリクエストに応え、敷地の自然な起伏をそのまま活かした傾斜床、全面ガラス張りの壁面という斬新なデザインを実現しました。約60,000株、150種以上の植物が植えられた「カラーリーフガーデン」に囲まれ、アートと自然が一体となった空間を体験できます。</p>
+                <p>※2025年12月26日〜2月末日は冬期休館。12月25日までの営業です。</p>`,
+                address: '長野県北佐久郡軽井沢町長倉815',
+                hours: '10:00〜17:00（入館は16:30まで）',
+                closed: '火曜（祝日の場合は開館）/ 冬期休館：12/26〜2月末',
+                price: '一般 1,500円 / 高大生 1,000円 / 中学生以下 無料',
+                phone: '0267-46-6565',
+                url: 'https://www.senju-museum.jp/'
+            },
+            newart: {
+                name: '軽井沢ニューアートミュージアム',
+                subtitle: '現代アート＆隈研吾チャペル',
+                image: 'spots/newart.jpg',
+                description: `<p>軽井沢ニューアートミュージアムは、2012年に旧軽井沢銀座通り沿いにオープンした現代美術館です。軽井沢駅から徒歩約8分というアクセスの良さと、カラマツ林をイメージした白い柱が林立する総ガラス張りの建築が目を引きます。設計は建築家・西森陸雄氏によるものです。</p>
+                <p>コレクションの中心は、草間彌生、井上有一、千住博、李禹煥、舟越桂など、日本を代表する現代アーティストの作品。1954年に結成された前衛芸術集団「具体美術協会」の白髪一雄、元永定正、田中敦子らの作品も充実しています。1階は入場無料で、草間彌生の大型オブジェ「真夜中に咲く花」などを鑑賞できます。</p>
+                <p>2015年には、敷地内に世界的建築家・隈研吾氏設計のチャペル「風通る白樺と苔の森」が完成。360度ガラス張りで、屋根も椅子もガラス製という革新的なデザインです。白樺と苔が建物の中にまで続き、内と外の境界を超越した「開かれた寛容な場所」をテーマにしています。チャペル前には、フランスの現代美術家ジャン＝ミシェル・オトニエルのオブジェ「こころの門」も。2つのハートが互いを支え合う姿は、縁結びのシンボルとして人気です。</p>
+                <p>チャペル見学は毎日3回（要予約）。普段は近くで見られない建築を間近で鑑賞でき、庭園での撮影も可能です。</p>`,
+                address: '長野県北佐久郡軽井沢町軽井沢1151-5',
+                hours: '10:00〜17:00（夏季 7〜9月は18:00まで）',
+                closed: '月曜（祝日の場合は翌平日）/ 8月は無休',
+                price: '展覧会により異なる（1階は入場無料）',
+                phone: '0267-46-8691',
+                url: 'https://knam.jp/'
+            },
+            ehon: {
+                name: '軽井沢絵本の森美術館',
+                subtitle: 'ムーゼの森で絵本の世界へ',
+                image: 'spots/ehon.jpg',
+                description: `<p>軽井沢絵本の森美術館は、1990年に開館した日本で初めての絵本専門美術館です。約15,000㎡の広大な森の中に、3つの展示館と絵本図書館が点在し、欧米絵本の創成期から現代までの原画や初版本を収蔵・展示しています。</p>
+                <p>第1展示館では絵本の誕生と発展の歴史を紹介。第2展示館では年2〜3回の企画展を開催し、様々なテーマで絵本の世界を掘り下げます。そして第3展示館には、世界中で愛される「ピーターラビット」の常設展「ピーターラビットのひみつの部屋」があります。</p>
+                <p>ピーターラビットの作者ビアトリクス・ポターの生誕150周年を記念して2016年にオープンしたこのコーナーでは、日本におけるビアトリクス研究の第一人者・吉田新一氏監修のもと、作品に込められた「ひみつ」に迫ります。2020年にリニューアルオープンし、より充実した展示となりました。</p>
+                <p>敷地内には、イギリス人ランドスケープデザイナー、ポール・スミザー氏が手がけた「ピクチャレスク・ガーデン」が広がります。軽井沢の原生植物を中心とした自然豊かな庭園を散策しながら、絵本の世界に浸る特別な時間をお過ごしください。隣接する「エルツおもちゃ博物館」との共通券もあります。</p>`,
+                address: '長野県北佐久郡軽井沢町長倉182（塩沢・風越公園エリア）',
+                hours: '9:30〜17:00（入館は16:30まで）',
+                closed: '火曜（GW・7〜9月は無休）/ 冬期休館：1月中旬〜2月末',
+                price: '大人 1,000円 / 中高生 700円 / 小学生 500円（2館共通券あり）',
+                phone: '0267-48-3340',
+                url: 'https://museen.org/ehon/'
+            },
+            sawamura: {
+                name: '沢村 旧軽井沢',
+                subtitle: '森のベーカリーレストラン',
+                image: 'spots/sawamura.jpg',
+                description: `<p>「ベーカリー&レストラン 沢村」は、2009年に軽井沢で誕生した人気のベーカリーレストランです。「素材と向き合い、手間を惜しまないパン作り」を信条に、現在は軽井沢、東京、名古屋に10店舗を展開。そのすべての始まりとなったのが、旧軽井沢店です。</p>
+                <p>2015年にオープンした現在の旧軽井沢店は、「自然との共生」をコンセプトに設計されました。木々の間を抜ける回廊や、木漏れ日が差し込むテラス席など、店内と店外が境目なくつながる開放的な空間が特徴です。隣接する工房には薪窯と石臼の自家製粉機を備え、ここで焼き上げたパンは旧軽井沢店でしか味わえない特別なものです。</p>
+                <p>パン作りには30種類以上の粉と自家製酵母を使い分け、長時間発酵で小麦の風味を最大限に引き出しています。ベーカリーには、クロワッサンやカンパーニュなどの定番から、ショコラ大納言やパン・オ・ヴァン信州など沢村ならではのものまで、朝から焼きたてが並びます。レストランでは、ランチタイムにパンのおかわりが無料というサービスも。</p>
+                <p>営業時間は朝7時から（冬季は8時から）と早く、モーニングからディナーまで楽しめます。軽井沢の森の中で味わう焼きたてパンの幸せを、ぜひ体験してください。</p>`,
+                address: '長野県北佐久郡軽井沢町軽井沢12-18',
+                hours: 'ベーカリー 7:00〜21:00 / レストラン 7:00〜22:00（L.O. 21:00）※冬季は8:00〜',
+                closed: '無休',
+                phone: '0267-41-3777',
+                url: 'https://b-sawamura.com/shop/28/'
             }
         };
 
