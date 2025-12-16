@@ -602,11 +602,9 @@
         .custom-spot-marker .marker-pin {
             width: 24px;
             height: 24px;
-            background: linear-gradient(135deg, var(--color-gold), #c4a030);
             border-radius: 50% 50% 50% 0;
             transform: rotate(-45deg);
             position: relative;
-            box-shadow: 0 3px 10px rgba(212, 175, 55, 0.5);
         }
 
         .custom-spot-marker .marker-pin::after {
@@ -620,6 +618,60 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
+
+        /* Category colors */
+        .marker-nature .marker-pin {
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            box-shadow: 0 3px 10px rgba(74, 222, 128, 0.5);
+        }
+        .marker-museum .marker-pin {
+            background: linear-gradient(135deg, #c084fc, #a855f7);
+            box-shadow: 0 3px 10px rgba(192, 132, 252, 0.5);
+        }
+        .marker-hotel .marker-pin {
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            box-shadow: 0 3px 10px rgba(96, 165, 250, 0.5);
+        }
+        .marker-cafe .marker-pin {
+            background: linear-gradient(135deg, #fb923c, #f97316);
+            box-shadow: 0 3px 10px rgba(251, 146, 60, 0.5);
+        }
+        .marker-sports .marker-pin {
+            background: linear-gradient(135deg, #22d3ee, #06b6d4);
+            box-shadow: 0 3px 10px rgba(34, 211, 238, 0.5);
+        }
+
+        /* Map Legend */
+        .map-legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(26, 26, 46, 0.5);
+            border-radius: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--color-snow);
+        }
+
+        .legend-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.nature { background: linear-gradient(135deg, #4ade80, #22c55e); }
+        .legend-dot.museum { background: linear-gradient(135deg, #c084fc, #a855f7); }
+        .legend-dot.hotel { background: linear-gradient(135deg, #60a5fa, #3b82f6); }
+        .legend-dot.cafe { background: linear-gradient(135deg, #fb923c, #f97316); }
+        .legend-dot.sports { background: linear-gradient(135deg, #22d3ee, #06b6d4); }
 
         .leaflet-popup-content-wrapper {
             background: rgba(26, 26, 46, 0.95);
@@ -1540,6 +1592,13 @@
             <h3 class="spots-map-title">Location Map</h3>
             <p class="spots-map-subtitle">各スポットの位置関係をチェック</p>
             <div id="spotsMap"></div>
+            <div class="map-legend">
+                <div class="legend-item"><span class="legend-dot nature"></span>自然</div>
+                <div class="legend-item"><span class="legend-dot museum"></span>美術館</div>
+                <div class="legend-item"><span class="legend-dot hotel"></span>ホテル</div>
+                <div class="legend-item"><span class="legend-dot cafe"></span>カフェ</div>
+                <div class="legend-item"><span class="legend-dot sports"></span>スポーツ</div>
+            </div>
         </div>
     </section>
 
@@ -1619,31 +1678,34 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(spotsMap);
 
-        // Spot locations data
+        // Spot locations with categories
         const spotLocations = [
-            { name: '白糸の滝', lat: 36.4096, lng: 138.5942, desc: '幅70mの岩肌から湧き出す名瀑' },
-            { name: '雲場池', lat: 36.352091, lng: 138.62691, desc: '「スワンレイク」と呼ばれる景勝地' },
-            { name: '碓氷峠見晴台', lat: 36.351, lng: 138.598, desc: '標高1200m、県境の絶景ポイント' },
-            { name: '万平ホテル', lat: 36.355, lng: 138.627, desc: '1894年創業のクラシックホテル' },
-            { name: '風越公園アイスアリーナ', lat: 36.32379718, lng: 138.59869354, desc: '長野五輪カーリング会場' },
-            { name: '千住博美術館', lat: 36.322, lng: 138.602, desc: '西沢立衛設計の美しい美術館' },
-            { name: 'ニューアートミュージアム', lat: 36.348, lng: 138.622, desc: '現代アートの発信基地' },
-            { name: '絵本の森美術館', lat: 36.326781, lng: 138.597439, desc: '欧米絵本の歴史を紹介' },
-            { name: '沢村 旧軽井沢', lat: 36.35628, lng: 138.633255, desc: '人気のベーカリー&レストラン' }
+            { name: '白糸の滝', lat: 36.4096, lng: 138.5942, desc: '幅70mの岩肌から湧き出す名瀑', cat: 'nature' },
+            { name: '雲場池', lat: 36.352091, lng: 138.62691, desc: '「スワンレイク」と呼ばれる景勝地', cat: 'nature' },
+            { name: '碓氷峠見晴台', lat: 36.351, lng: 138.598, desc: '標高1200m、県境の絶景ポイント', cat: 'nature' },
+            { name: '万平ホテル', lat: 36.355, lng: 138.627, desc: '1894年創業のクラシックホテル', cat: 'hotel' },
+            { name: '風越公園アイスアリーナ', lat: 36.32379718, lng: 138.59869354, desc: '長野五輪カーリング会場', cat: 'sports' },
+            { name: '千住博美術館', lat: 36.322, lng: 138.602, desc: '西沢立衛設計の美しい美術館', cat: 'museum' },
+            { name: 'ニューアートミュージアム', lat: 36.348, lng: 138.622, desc: '現代アートの発信基地', cat: 'museum' },
+            { name: '絵本の森美術館', lat: 36.326781, lng: 138.597439, desc: '欧米絵本の歴史を紹介', cat: 'museum' },
+            { name: '沢村 旧軽井沢', lat: 36.35628, lng: 138.633255, desc: '人気のベーカリー&レストラン', cat: 'cafe' }
         ];
 
-        // Custom marker icon
-        const spotIcon = L.divIcon({
-            className: 'custom-spot-marker',
-            html: '<div class="marker-pin"></div>',
-            iconSize: [30, 42],
-            iconAnchor: [15, 42],
-            popupAnchor: [0, -42]
-        });
+        // Create category-specific icons
+        function createSpotIcon(category) {
+            return L.divIcon({
+                className: `custom-spot-marker marker-${category}`,
+                html: '<div class="marker-pin"></div>',
+                iconSize: [30, 42],
+                iconAnchor: [15, 42],
+                popupAnchor: [0, -42]
+            });
+        }
 
         // Add markers to map with permanent labels
         spotLocations.forEach(spot => {
-            const marker = L.marker([spot.lat, spot.lng], { icon: spotIcon }).addTo(spotsMap);
+            const icon = createSpotIcon(spot.cat);
+            const marker = L.marker([spot.lat, spot.lng], { icon: icon }).addTo(spotsMap);
             marker.bindPopup(`<strong>${spot.name}</strong><br>${spot.desc}`);
             marker.bindTooltip(spot.name, {
                 permanent: true,
