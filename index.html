@@ -2139,6 +2139,11 @@
             }
 
             modalContact.innerHTML = contactHTML;
+
+            // Reset scroll position to top
+            modal.querySelector('.modal').scrollTop = 0;
+            modal.querySelector('.modal-body').scrollTop = 0;
+
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
