@@ -968,11 +968,16 @@
                         </div>
                     </div>
                     <div class="event">
-                        <div class="event-time">夜</div>
+                        <div class="event-time">18:30</div>
                         <div class="event-content">
-                            <div class="event-icon">📺</div>
-                            <div class="event-title">M-1グランプリ</div>
-                            <div class="event-description">みんなで年末の笑いを楽しむ！</div>
+                            <div class="event-icon">🏆</div>
+                            <div class="event-title-wrapper">
+                                <span class="event-title">M-1グランプリ2025</span>
+                                <button class="info-btn" data-venue="m1" aria-label="詳細情報">
+                                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                                </button>
+                            </div>
+                            <div class="event-description">21代目王者が決まる！史上最多11,521組の頂点へ</div>
                         </div>
                     </div>
                 </div>
@@ -1143,6 +1148,85 @@
                 hours: 'ランチ 11:30〜14:30 / ディナー 17:00〜22:00',
                 phone: '0267-42-1100',
                 url: 'https://karuizawa.hotelindigo.com/en/dining/all-day-dining-kagaribi/'
+            },
+            m1: {
+                name: 'M-1グランプリ2025',
+                subtitle: '21代目王者決定戦',
+                image: 'venues/images/m1.webp',
+                description: `
+                <p>2001年に始まった「漫才で天下を獲る」夢の舞台。今年は<strong>史上最多11,521組</strong>がエントリーし、その頂点を目指す。令和ロマンが史上初の2連覇を達成した昨年に続き、21代目王者の座を懸けた熱戦が繰り広げられる。</p>
+
+                <h4 style="color: var(--color-gold); margin: 20px 0 12px; font-size: 1rem; border-bottom: 1px solid rgba(212,175,55,0.3); padding-bottom: 6px;">決勝進出 9組</h4>
+                <div style="display: grid; gap: 10px;">
+                    <div style="background: rgba(212,175,55,0.1); padding: 12px; border-radius: 8px; border-left: 3px solid var(--color-gold);">
+                        <strong style="color: var(--color-gold);">真空ジェシカ</strong>（川北茂澄・ガク）<br>
+                        <span style="font-size: 0.85em; opacity: 0.8;">5年連続5回目 / 2012年結成 / 人力舎</span><br>
+                        <span style="font-size: 0.85em;">シュールと知性が融合した唯一無二の漫才。悲願の初優勝なるか</span>
+                    </div>
+                    <div style="background: rgba(212,175,55,0.1); padding: 12px; border-radius: 8px; border-left: 3px solid var(--color-gold);">
+                        <strong style="color: var(--color-gold);">ヤーレンズ</strong>（楢原真樹・出井隼之介）<br>
+                        <span style="font-size: 0.85em; opacity: 0.8;">3年連続3回目 / 2017年結成 / ケイダッシュステージ</span><br>
+                        <span style="font-size: 0.85em;">2023年準優勝。圧倒的なテンポと構成力で頂点を狙う</span>
+                    </div>
+                    <div style="background: rgba(212,175,55,0.1); padding: 12px; border-radius: 8px; border-left: 3px solid var(--color-gold);">
+                        <strong style="color: var(--color-gold);">ヨネダ2000</strong>（誠・愛）<br>
+                        <span style="font-size: 0.85em; opacity: 0.8;">2回目 / 2020年結成 / 吉本興業</span><br>
+                        <span style="font-size: 0.85em;">女性コンビ。独創的な世界観と予測不能な展開が持ち味</span>
+                    </div>
+                    <div style="background: rgba(212,175,55,0.1); padding: 12px; border-radius: 8px; border-left: 3px solid var(--color-gold);">
+                        <strong style="color: var(--color-gold);">ママタルト</strong>（檜原洋平・大鶴肥満）<br>
+                        <span style="font-size: 0.85em; opacity: 0.8;">2年連続2回目 / 2016年結成 / サンミュージック</span><br>
+                        <span style="font-size: 0.85em;">190kg大鶴の巨体を活かしたダイナミックな漫才。「まーごめ」</span>
+                    </div>
+                    <div style="background: rgba(212,175,55,0.1); padding: 12px; border-radius: 8px; border-left: 3px solid var(--color-gold);">
+                        <strong style="color: var(--color-gold);">エバース</strong>（町田和樹・佐々木隆史）<br>
+                        <span style="font-size: 0.85em; opacity: 0.8;">2年連続2回目 / 2017年結成 / 吉本興業</span><br>
+                        <span style="font-size: 0.85em;">正統派しゃべくり漫才。安定感抜群の実力派</span>
+                    </div>
+                    <div style="background: rgba(255,215,0,0.15); padding: 12px; border-radius: 8px; border-left: 3px solid #ffd700;">
+                        <strong style="color: #ffd700;">ドンデコルテ</strong>（小橋共作・渡辺銀次）<span style="background: #ffd700; color: #1a1a2e; padding: 2px 8px; border-radius: 10px; font-size: 0.7em; margin-left: 8px;">初</span><br>
+                        <span style="font-size: 0.85em; opacity: 0.8;">2019年結成 / 吉本興業</span><br>
+                        <span style="font-size: 0.85em;">「おじさん」をテーマにした独演スタイル。渡辺の眼光に注目</span>
+                    </div>
+                    <div style="background: rgba(255,215,0,0.15); padding: 12px; border-radius: 8px; border-left: 3px solid #ffd700;">
+                        <strong style="color: #ffd700;">豪快キャプテン</strong>（べーやん・山下ギャンブルゴリラ）<span style="background: #ffd700; color: #1a1a2e; padding: 2px 8px; border-radius: 10px; font-size: 0.7em; margin-left: 8px;">初</span><br>
+                        <span style="font-size: 0.85em; opacity: 0.8;">2019年結成 / 吉本興業</span><br>
+                        <span style="font-size: 0.85em;">大阪よしもと漫才劇場で今一番ウケているコンビ。理不尽ブチギレが真骨頂</span>
+                    </div>
+                    <div style="background: rgba(255,215,0,0.15); padding: 12px; border-radius: 8px; border-left: 3px solid #ffd700;">
+                        <strong style="color: #ffd700;">めぞん</strong>（吉野おいなり君・原一刻）<span style="background: #ffd700; color: #1a1a2e; padding: 2px 8px; border-radius: 10px; font-size: 0.7em; margin-left: 8px;">初</span><br>
+                        <span style="font-size: 0.85em; opacity: 0.8;">2016年結成 / 吉本興業</span><br>
+                        <span style="font-size: 0.85em;">2024年2回戦敗退から大躍進。吉野は人気の板橋ハウスメンバー</span>
+                    </div>
+                    <div style="background: rgba(255,215,0,0.15); padding: 12px; border-radius: 8px; border-left: 3px solid #ffd700;">
+                        <strong style="color: #ffd700;">たくろう</strong>（赤木裕・きむらバンド）<span style="background: #ffd700; color: #1a1a2e; padding: 2px 8px; border-radius: 10px; font-size: 0.7em; margin-left: 8px;">初</span><br>
+                        <span style="font-size: 0.85em; opacity: 0.8;">2016年結成 / 吉本興業</span><br>
+                        <span style="font-size: 0.85em;">芸歴9年、7年ぶりの準決勝突破。赤木の"テンパりキャラ"は唯一無二</span>
+                    </div>
+                </div>
+
+                <h4 style="color: var(--color-gold); margin: 25px 0 12px; font-size: 1rem; border-bottom: 1px solid rgba(212,175,55,0.3); padding-bottom: 6px;">敗者復活戦（21組）</h4>
+                <p style="font-size: 0.9em; line-height: 1.8;">ミキ、カベポスター、20世紀、カナメストーン、フランツ、ゼロカラン、ドーナツ・ピーナツ、スタミナパン、イチゴ、今夜も星が綺麗、例えば炎、黒帯、大王、豆鉄砲、ひつじねいり、生姜猫、TCクラクション、ネコニスズ、おおぞらモード、センチネル、ミカボ</p>
+                <p style="font-size: 0.85em; opacity: 0.8;">15:00〜18:30 / 会場：EX THEATER ROPPONGI<br>MC：陣内智則、齊藤京子（日向坂46）<br>芸人審査員：ウエストランド井口、とろサーモン久保田、野田クリスタル、ダイアン・ユースケ、錦鯉・渡辺</p>
+
+                <h4 style="color: var(--color-gold); margin: 25px 0 12px; font-size: 1rem; border-bottom: 1px solid rgba(212,175,55,0.3); padding-bottom: 6px;">決勝審査員（9名）</h4>
+                <p style="font-size: 0.9em;">中川家・礼二、海原ともこ、フットボールアワー後藤<span style="background: rgba(212,175,55,0.3); padding: 1px 6px; border-radius: 8px; font-size: 0.8em; margin-left: 4px;">初</span>、ミルクボーイ駒場<span style="background: rgba(212,175,55,0.3); padding: 1px 6px; border-radius: 8px; font-size: 0.8em; margin-left: 4px;">初</span>、アンタッチャブル柴田、笑い飯・哲夫、博多大吉、ナイツ塙、かまいたち山内</p>
+
+                <h4 style="color: var(--color-gold); margin: 25px 0 12px; font-size: 1rem; border-bottom: 1px solid rgba(212,175,55,0.3); padding-bottom: 6px;">歴代チャンピオン</h4>
+                <div style="font-size: 0.85em; display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px 16px;">
+                    <span>2024 令和ロマン（2連覇）</span><span>2017 とろサーモン</span>
+                    <span>2023 令和ロマン</span><span>2016 銀シャリ</span>
+                    <span>2022 ウエストランド</span><span>2015 トレンディエンジェル</span>
+                    <span>2021 錦鯉</span><span>2010 笑い飯</span>
+                    <span>2020 マヂカルラブリー</span><span>2009 パンクブーブー</span>
+                    <span>2019 ミルクボーイ</span><span>2008 NON STYLE</span>
+                    <span>2018 霜降り明星</span><span>2007 サンドウィッチマン</span>
+                </div>
+                `,
+                broadcast: '決勝 18:30〜22:10 / 敗者復活 15:00〜18:30',
+                channel: 'ABCテレビ・テレビ朝日系 全国ネット生放送',
+                mc: '今田耕司、上戸彩',
+                url: 'https://www.m-1gp.com/'
             }
         };
 
@@ -1152,7 +1236,10 @@
             hours: '<svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>',
             closed: '<svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zM9 14H7v-2h2v2zm4 0h-2v-2h2v2zm4 0h-2v-2h2v2z"/></svg>',
             price: '<svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>',
-            phone: '<svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>'
+            phone: '<svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>',
+            broadcast: '<svg viewBox="0 0 24 24"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg>',
+            channel: '<svg viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>',
+            mc: '<svg viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.91-3c-.49 0-.9.36-.98.85C16.52 14.2 14.47 16 12 16s-4.52-1.8-4.93-4.15c-.08-.49-.49-.85-.98-.85-.61 0-1.09.54-1 1.14.49 3 2.89 5.35 5.91 5.78V20c0 .55.45 1 1 1s1-.45 1-1v-2.08c3.02-.43 5.42-2.78 5.91-5.78.1-.6-.39-1.14-1-1.14z"/></svg>'
         };
 
         // Modal Elements
@@ -1231,6 +1318,40 @@
                         <div class="modal-contact-text">
                             <div class="modal-contact-label">電話</div>
                             ${venue.phone}
+                        </div>
+                    </div>`;
+            }
+
+            // M-1 specific fields
+            if (venue.broadcast) {
+                contactHTML += `
+                    <div class="modal-contact-item full-width">
+                        <div class="modal-contact-icon">${icons.broadcast}</div>
+                        <div class="modal-contact-text">
+                            <div class="modal-contact-label">放送時間</div>
+                            ${venue.broadcast}
+                        </div>
+                    </div>`;
+            }
+
+            if (venue.channel) {
+                contactHTML += `
+                    <div class="modal-contact-item full-width">
+                        <div class="modal-contact-icon">${icons.channel}</div>
+                        <div class="modal-contact-text">
+                            <div class="modal-contact-label">放送局</div>
+                            ${venue.channel}
+                        </div>
+                    </div>`;
+            }
+
+            if (venue.mc) {
+                contactHTML += `
+                    <div class="modal-contact-item">
+                        <div class="modal-contact-icon">${icons.mc}</div>
+                        <div class="modal-contact-text">
+                            <div class="modal-contact-label">MC</div>
+                            ${venue.mc}
                         </div>
                     </div>`;
             }
