@@ -644,6 +644,10 @@
             background: linear-gradient(135deg, #f472b6, #ec4899);
             box-shadow: 0 3px 10px rgba(244, 114, 182, 0.5);
         }
+        .marker-craft .marker-pin {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            box-shadow: 0 3px 10px rgba(251, 191, 36, 0.5);
+        }
 
         /* Map Legend */
         .map-legend {
@@ -677,6 +681,7 @@
         .legend-dot.cafe { background: linear-gradient(135deg, #fb923c, #f97316); }
         .legend-dot.sports { background: linear-gradient(135deg, #22d3ee, #06b6d4); }
         .legend-dot.villa { background: linear-gradient(135deg, #f472b6, #ec4899); }
+        .legend-dot.craft { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
 
         .leaflet-popup-content-wrapper {
             background: rgba(26, 26, 46, 0.95);
@@ -1262,6 +1267,19 @@
                         </div>
                     </div>
                     <div class="event">
+                        <div class="event-time">16:00</div>
+                        <div class="event-content">
+                            <div class="event-icon">🔮</div>
+                            <div class="event-title-wrapper">
+                                <span class="event-title">軽井沢ガラス工房で体験</span>
+                                <button class="info-btn" data-venue="glass" aria-label="詳細情報">
+                                    <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                                </button>
+                            </div>
+                            <div class="event-description">オリジナル作品を作ろう</div>
+                        </div>
+                    </div>
+                    <div class="event">
                         <div class="event-time">19:30</div>
                         <div class="event-content">
                             <div class="event-icon">🥂</div>
@@ -1603,6 +1621,7 @@
                 <div class="legend-item"><span class="legend-dot hotel"></span>ホテル</div>
                 <div class="legend-item"><span class="legend-dot cafe"></span>カフェ</div>
                 <div class="legend-item"><span class="legend-dot sports"></span>スポーツ</div>
+                <div class="legend-item"><span class="legend-dot craft"></span>体験</div>
                 <div class="legend-item"><span class="legend-dot villa"></span>別荘</div>
             </div>
         </div>
@@ -1695,7 +1714,8 @@
             { name: 'ニューアートミュージアム', lat: 36.349596, lng: 138.634467, desc: '現代アートの発信基地', cat: 'museum' },
             { name: '絵本の森美術館', lat: 36.326781, lng: 138.597439, desc: '欧米絵本の歴史を紹介', cat: 'museum' },
             { name: '沢村 旧軽井沢', lat: 36.35628, lng: 138.633255, desc: '人気のベーカリー&レストラン', cat: 'cafe' },
-            { name: '別荘', lat: 36.3555043, lng: 138.5880893, desc: '宿泊拠点', cat: 'villa' }
+            { name: '別荘', lat: 36.3555043, lng: 138.5880893, desc: '宿泊拠点', cat: 'villa' },
+            { name: 'ガラス工房', lat: 36.331074, lng: 138.608171, desc: '吹きガラス体験ができる工房', cat: 'craft' }
         ];
 
         // Create category-specific icons
@@ -1805,6 +1825,19 @@
                 hours: 'ランチ 11:30〜14:30 / ディナー 17:00〜22:00',
                 phone: '0267-42-1100',
                 url: 'https://karuizawa.hotelindigo.com/en/dining/all-day-dining-kagaribi/'
+            },
+            glass: {
+                name: '軽井沢ガラス工房',
+                subtitle: 'ガラス作り体験',
+                image: 'spots/glass.jpg',
+                description: `<p>軽井沢で本格的なガラス工芸を体験できる工房。1200℃に溶けたガラスを使った吹きガラス体験では、グラス・花瓶・風鈴など6種類の形から選べます。色ガラスや金箔・銀箔、気泡入り、蓄光ガラスなど豊富なオプションも魅力。</p>
+                <p>初心者でもスタッフの丁寧なサポートで安心して参加できます。完成した作品は翌日以降のお渡し、または宅配便での発送も可能。サンドブラストやジェルキャンドル制作など、気軽に楽しめる体験メニューも充実しています。</p>`,
+                address: '長野県北佐久郡軽井沢町長倉664-9',
+                hours: '10:00〜17:00（GW・夏季は9:00〜18:00）',
+                closed: '水曜定休（GW・7〜9月は無休）',
+                price: '吹きガラス 4,400円〜 / サンドブラスト 3,080円〜 / キャンドル 1,375円〜',
+                phone: '0267-48-0881',
+                url: 'https://www.karuizawaglassstudio.com/'
             },
             m1: {
                 name: 'M-1グランプリ2025',
